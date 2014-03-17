@@ -43,6 +43,7 @@ String::tokens = ->
     "if": "IF"
     then: "THEN"
     "while": "WHILE"
+    do: "DO"
   
   # Make a token object.
   make = (type, value) ->
@@ -156,7 +157,7 @@ parse = (input) ->
     else if lookahead and lookahead.type is "WHILE"
       match "WHILE"
       left = condition()
-      match "THEN"
+      match "DO"
       right = statement()
       result =
         type: "WHILE"
