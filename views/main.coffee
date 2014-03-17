@@ -42,6 +42,7 @@ String::tokens = ->
     p:    "P"
     "if": "IF"
     then: "THEN"
+    "while": "WHILE"
   
   # Make a token object.
   make = (type, value) ->
@@ -150,6 +151,15 @@ parse = (input) ->
       right = statement()
       result =
         type: "IF"
+        left: left
+        right: right
+    else if lookahead and lookahead.type is "WHILE"
+      match "WHILE"
+      left = condition()
+      match "THEN"
+      right = statement()
+      result =
+        type: "WHILE"
         left: left
         right: right
     else # Error!
