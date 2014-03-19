@@ -104,7 +104,16 @@ table.tablaEjemplos {
   height: 20px;
   padding: 5px;
 }
-   
+
+table.tablaOUT{
+  text-align: left;
+  color: $black;
+  display: block;
+  height: 350px;
+  width: 1000px;
+  overflow: auto;
+}
+ 
 .error {
   color: $white;
   background-color: $red;
