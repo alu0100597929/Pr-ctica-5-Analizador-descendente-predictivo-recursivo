@@ -99,6 +99,9 @@ String::tokens = ->
     # comparison operator
     else if m = tokens.COMPARISONOPERATOR.bexec(this)
       result.push make("COMPARISON", getTok())
+    #MULDIVOP operator
+    else if m = tokens.MULDIVOP.bexec(this)
+      result.push make("MULDIVOP", getTok())
     # single-character operator
     else if m = tokens.ONECHAROPERATORS.bexec(this)
       result.push make(m[0], getTok())
