@@ -185,7 +185,7 @@ parse = (input) ->
       match "BEGIN"
       result = [statement()]
       while lookahead and lookahead.type is ";"
-	right = statement()
+	match ";"
 	result.push statement()
       match "END"
     else # Error!
