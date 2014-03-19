@@ -6,6 +6,7 @@ $main-font: Helvetica, Arial, sans-serif;
 
 body {
   font-family: $main-font;
+  background-image:url('/images/fondo.jpg');
 }
 
 h1 {
@@ -16,7 +17,6 @@ h1 {
 header h1 {
   font-size: 40px;
   line-height: 80px;
-  background: transparent url(/images/logo.png) 0 0 no-repeat;
   background-size:5% 70%;
   padding-left: 84px;
 }
@@ -32,7 +32,7 @@ header h1 {
   table.tablaEnlaces{
     background-color: $black;
     border-radius: 5px;
-    border: 2px solid #DDD;
+    border: 2px solid #FF0000;
   
     width: 500px;
     height: 20px;
@@ -62,6 +62,9 @@ label {
 
 nav a.current {
   background: lighten($black, 50%);
+}
+nav a.pages {
+  color: $red;
 }
 
 .flash {
@@ -98,7 +101,7 @@ button, input {
 table.tablaEjemplos {
   background-color: $black;
   border-radius: 5px;
-  border: 2px solid #DDD;
+  border: 2px solid #FF0000;
   
   width: 450px;
   height: 20px;
