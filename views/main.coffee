@@ -36,6 +36,7 @@ String::tokens = ->
     ONELINECOMMENT: /\/\/.*/g
     MULTIPLELINECOMMENT: /\/[*](.|\n)*?[*]\//g
     COMPARISONOPERATOR: /[<>=!]=|[<>]/g
+    MULDIVOP: /[\*\/]/g
     ONECHAROPERATORS: /([-+*\/=()&|;:,{}[\]])/g
 
   RESERVED_WORD = 
@@ -193,13 +194,13 @@ parse = (input) ->
 
   term = ->
     result = factor()
-    if lookahead and lookahead.type is "*"
-      match "*"
-      right = term()
-      result =
-        type: "*"
-        left: result
-        right: right
+    type = lookahead.value
+    match "MULDIVOP"
+    right = term()
+    result =
+      type: type
+      left: result
+      right: right
     result
 
   factor = ->
