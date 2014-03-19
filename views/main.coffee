@@ -183,7 +183,7 @@ parse = (input) ->
         right: right
     else if lookahead and lookahead.type is "BEGIN"
       match "BEGIN"
-      while lookahead and lookahead.type != "END"
+      while lookahead and lookahead.type not "END"
 	right = statement()
 	result =
 	  type: "BEGIN"
