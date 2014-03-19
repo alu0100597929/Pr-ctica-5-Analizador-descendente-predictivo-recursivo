@@ -6,7 +6,6 @@ $main-font: Helvetica, Arial, sans-serif;
 
 body {
   font-family: $main-font;
-  background-color: #66CC11;
 }
 
 h1 {
@@ -30,9 +29,17 @@ header h1 {
     background: $background;
     overflow: hidden;
   }
-  li {
-    
+  
+  table.tablaEnlaces{
+    background-color: $black;
+    border-radius: 5px;
+    border: 2px solid #DDD;
+  
+    width: 100px;
+    height: 20px;
+    padding: 5px;
   }
+
   a {
     text-decoration: none;
     display: block;
