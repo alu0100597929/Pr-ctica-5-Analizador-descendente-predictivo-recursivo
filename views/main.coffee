@@ -153,10 +153,10 @@ parse = (input) ->
         right: right
     else if lookahead and lookahead.type is "CALL"
       match "CALL"
-      right = expression()
       result =
         type: "CALL"
-        value: right
+        value: lookahead.value
+      match "ID"
     else if lookahead and lookahead.type is "P"
       match "P"
       right = expression()
@@ -184,13 +184,10 @@ parse = (input) ->
     else if lookahead and lookahead.type is "BEGIN"
       match "BEGIN"
       result = [statement()]
-	type = "BEGIN"
-	while lookahead and lookahead.type is ";"
-	  right = statement()
-	  result =
-	    type: ";"
-	    right: right
-	match "END"
+      while lookahead and lookahead.type is ";"
+	right = statement()
+	result.push statement()
+      match "END"
     else # Error!
       throw "Syntax Error. Expected identifier but found " + 
         (if lookahead then lookahead.value else "end of input") + 
