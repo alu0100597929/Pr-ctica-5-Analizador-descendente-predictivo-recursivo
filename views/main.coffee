@@ -151,7 +151,7 @@ parse = (input) ->
          result = null
          if lookahead and lookahead.type is "ID"
            left =
-             type: "Const ID"
+             type: "CONST"
              value: lookahead.value
            match "ID"
            match "="
