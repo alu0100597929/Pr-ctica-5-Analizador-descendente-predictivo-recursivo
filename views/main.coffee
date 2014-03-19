@@ -173,10 +173,10 @@ parse = (input) ->
            left: left
            right: right
          result
-       results.push constante()
+       results.push constant()
        while lookahead and lookahead.type is ","
          match ","
-         results.push constante()
+         results.push constant()
        match ";"
     
     if lookahead and lookahead.type is "VAR"
@@ -217,7 +217,7 @@ parse = (input) ->
               " near '#{input.substr(lookahead.from)}'"
       result
     while lookahead and lookahead.type is "PROCEDURE"
-      results.push proced()
+      results.push proc()
     results.push statement()
     results
 
