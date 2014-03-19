@@ -6,7 +6,6 @@ $main-font: Helvetica, Arial, sans-serif;
 
 body {
   font-family: $main-font;
-  background-color: #66CC11;
 }
 
 h1 {
@@ -27,21 +26,24 @@ header h1 {
     list-style: none;
     margin: 0;
     padding: 0;
-    background: $background;
     overflow: hidden;
   }
-  li {
-    float: left;
+  
+  table.tablaEnlaces{
+    background-color: $black;
+    border-radius: 5px;
+    border: 2px solid #DDD;
+  
+    width: 500px;
+    height: 20px;
+    padding: 5px;
   }
+
   a {
     text-decoration: none;
     display: block;
     padding: 8px;
-    background: $background;
     color: $color;
-    &:hover {
-      background: darken($background, 20%);
-    }
   }
 }
 
@@ -85,29 +87,22 @@ nav a.current {
   }
 }
 
-.loadfile {
-  background-color: $black;
-  border-radius: 5px;
-  border: 2px solid #DDD;
-  line-height: 80px;
-  
-  //width: 75%;
-  height: 20px;
-  padding: 5px;
-
-  button, input {
+button, input {
     color: $black;
-    float: left;
     list-style: none;
-
     display: inline;
     text-align: center;
     font-weight: bolder;
   }
-   
-  button:hover, input:hover {
-    cursor:pointer;
-  }
+
+table.tablaEjemplos {
+  background-color: $black;
+  border-radius: 5px;
+  border: 2px solid #DDD;
+  
+  width: 450px;
+  height: 20px;
+  padding: 5px;
 }
    
 .error {
