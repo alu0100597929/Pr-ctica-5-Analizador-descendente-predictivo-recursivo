@@ -199,7 +199,7 @@ parse = (input) ->
     result = factor()
     type = lookahead.value
     match "MULDIVOP"
-    right = term()
+    right = factor()
     result =
       type: type
       left: result
