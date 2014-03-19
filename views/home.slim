@@ -1,12 +1,13 @@
 center
-  p Esta aplicación es un parseador descendiente recursivo predictivo.
+  p 
+    b Esta aplicación es un parseador descendiente recursivo predictivo.
 
   #header.header
     p
-      | Escriba código en el siguiente cuadro de texto y a continuación pulse sobre parsear.
-      | También puede cargar un archivo de ejemplo para ver el resultado.
+      b Escriba código en el siguiente cuadro de texto y a continuación pulse sobre parsear.
+      b También puede cargar un archivo de ejemplo para ver el resultado.
     div
-      textarea#original[autofocus cols="120" rows="10"]
+      textarea#original[autofocus cols="100" rows="5"]
 
     input#files type="file"
     br
@@ -53,4 +54,14 @@ center
 
   br
   input#PARSE.mylink[value="Parsear" type="button"]
-  pre#OUTPUT
+  
+  br
+  br
+  table.tablaOUT style="overflow-y:scroll" 
+    th
+      p
+        b Tokens
+      th
+        tr
+          td
+            pre#OUTPUT

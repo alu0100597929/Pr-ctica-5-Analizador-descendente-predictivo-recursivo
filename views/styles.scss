@@ -6,6 +6,7 @@ $main-font: Helvetica, Arial, sans-serif;
 
 body {
   font-family: $main-font;
+  background-image:url('/images/fondo.jpg');
 }
 
 h1 {
@@ -16,7 +17,6 @@ h1 {
 header h1 {
   font-size: 40px;
   line-height: 80px;
-  background: transparent url(/images/logo.png) 0 0 no-repeat;
   background-size:5% 70%;
   padding-left: 84px;
 }
@@ -32,9 +32,9 @@ header h1 {
   table.tablaEnlaces{
     background-color: $black;
     border-radius: 5px;
-    border: 2px solid #DDD;
+    border: 2px solid $red;
   
-    width: 500px;
+    width: 600px;
     height: 20px;
     padding: 5px;
   }
@@ -61,7 +61,7 @@ label {
 }
 
 nav a.current {
-  background: lighten($black, 50%);
+  
 }
 
 .flash {
@@ -98,13 +98,25 @@ button, input {
 table.tablaEjemplos {
   background-color: $black;
   border-radius: 5px;
-  border: 2px solid #DDD;
+  border: 2px solid $red;
   
   width: 450px;
   height: 20px;
   padding: 5px;
 }
-   
+
+table.tablaOUT{
+  text-align: left;
+  color: $black;
+  background-color: $white;
+  border-radius: 5px;
+  border: 2px solid $black;
+  display: block;
+  height: 350px;
+  width: 1000px;
+  overflow: auto;
+}
+ 
 .error {
   color: $white;
   background-color: $red;
