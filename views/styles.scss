@@ -35,7 +35,7 @@ header h1 {
     border-radius: 5px;
     border: 2px solid #DDD;
   
-    width: 100px;
+    width: 200px;
     height: 20px;
     padding: 5px;
   }
@@ -44,11 +44,7 @@ header h1 {
     text-decoration: none;
     display: block;
     padding: 8px;
-    background: $background;
     color: $color;
-    &:hover {
-      background: darken($background, 20%);
-    }
   }
 }
 
