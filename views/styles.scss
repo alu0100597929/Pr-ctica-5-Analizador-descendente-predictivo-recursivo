@@ -32,7 +32,7 @@ header h1 {
   table.tablaEnlaces{
     background-color: $black;
     border-radius: 5px;
-    border: 2px solid #FF0000;
+    border: 2px solid #FF4444;
   
     width: 600px;
     height: 20px;
@@ -61,7 +61,7 @@ label {
 }
 
 nav a.current {
-  background: lighten($black, 50%);
+  
 }
 
 .flash {
@@ -98,7 +98,7 @@ button, input {
 table.tablaEjemplos {
   background-color: $black;
   border-radius: 5px;
-  border: 2px solid #FF0000;
+  border: 2px solid #FF4444;
   
   width: 450px;
   height: 20px;
