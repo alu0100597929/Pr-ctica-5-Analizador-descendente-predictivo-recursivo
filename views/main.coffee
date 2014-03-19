@@ -47,6 +47,8 @@ String::tokens = ->
     "while": "WHILE"
     do: "DO"
     "call" : "CALL"
+    "begin" : "BEGIN"
+    "end" : "END"
   
   # Make a token object.
   make = (type, value) ->
@@ -174,10 +176,18 @@ parse = (input) ->
       match "WHILE"
       left = condition()
       match "DO"
+      if lookahead and lookahead.type is "{"
+	while lookahead and lookahead.type is not "}"
+	  right = statement()
+	  result =
+	    type: "WHILE"
+	    left: left
+	    right: right
+    else if lookahead and lookahead.type is "BEGIN"
+      match "BEGIN"
       right = statement()
       result =
-        type: "WHILE"
-        left: left
+        type: "BEGIN"
         right: right
     else # Error!
       throw "Syntax Error. Expected identifier but found " + 
