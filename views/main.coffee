@@ -36,7 +36,6 @@ String::tokens = ->
     ONELINECOMMENT: /\/\/.*/g
     MULTIPLELINECOMMENT: /\/[*](.|\n)*?[*]\//g
     COMPARISONOPERATOR: /[<>=!]=|[<>]/g
-    MULDIVOP: /[*\/]/g
     ONECHAROPERATORS: /([-+*\/=()&|;:,{}[\]])/g
 
   RESERVED_WORD = 
@@ -96,14 +95,9 @@ String::tokens = ->
       result.push make("STRING", 
                         getTok().replace(/^["']|["']$/g, ""))
     
-    #MULDIVOP operator
-    else if m = tokens.MULDIVOP.bexec(this)
-      result.push make("MULDIVOP", getTok())
-      
     # comparison operator
     else if m = tokens.COMPARISONOPERATOR.bexec(this)
       result.push make("COMPARISON", getTok())
-
     # single-character operator
     else if m = tokens.ONECHAROPERATORS.bexec(this)
       result.push make(m[0], getTok())
@@ -199,14 +193,13 @@ parse = (input) ->
 
   term = ->
     result = factor()
-    while lookahead and lookahead.type is "MULDIVOP"
-      type = lookahead.type
-      match "MULDIVOP"
-      right = factor()
+    while lookahead and lookahead.type is "*"
+      match "*"
+      right = term()
       result =
-	type: type
-	left: result
-	right: right
+        type: "*"
+        left: result
+        right: right
     result
 
   factor = ->
