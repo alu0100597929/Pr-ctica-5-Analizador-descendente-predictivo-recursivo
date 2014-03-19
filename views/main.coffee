@@ -195,7 +195,7 @@ parse = (input) ->
     result = factor()
     while lookahead and lookahead.type is "*"
       match "*"
-      right = term()
+      right = factor()
       result =
         type: "*"
         left: result
