@@ -183,11 +183,13 @@ parse = (input) ->
         right: right
     else if lookahead and lookahead.type is "BEGIN"
       match "BEGIN"
-      while lookahead and lookahead.type not "END"
+      result = [statement()]
+      while lookahead and lookahead.type is ";"
 	right = statement()
 	result =
 	  type: "BEGIN"
 	  right: right
+      match "END"
     else # Error!
       throw "Syntax Error. Expected identifier but found " + 
         (if lookahead then lookahead.value else "end of input") + 
