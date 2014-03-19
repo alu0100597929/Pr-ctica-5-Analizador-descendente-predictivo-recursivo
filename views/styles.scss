@@ -6,7 +6,6 @@ $main-font: Helvetica, Arial, sans-serif;
 
 body {
   font-family: $main-font;
-  /!background-image:url('/images/fondo.jpg');
 }
 
 h1 {
@@ -62,9 +61,6 @@ label {
 
 nav a.current {
   background: lighten($black, 50%);
-}
-nav a.pages {
-  color: $red;
 }
 
 .flash {
