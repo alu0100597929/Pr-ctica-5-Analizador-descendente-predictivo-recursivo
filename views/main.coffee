@@ -36,7 +36,9 @@ String::tokens = ->
     ONELINECOMMENT: /\/\/.*/g
     MULTIPLELINECOMMENT: /\/[*](.|\n)*?[*]\//g
     COMPARISONOPERATOR: /[<>=!]=|[<>]/g
-    ONECHAROPERATORS: /([-+*\/=()&|;:,{}[\]])/g
+    ONECHAROPERATORS: /([=()&|;:,{}[\]])/g
+    SUMRESOP: /[+-]/g
+    MULTDIV: /[*\/]/g
 
   RESERVED_WORD = 
     p:    "P"
@@ -95,9 +97,16 @@ String::tokens = ->
       result.push make("STRING", 
                         getTok().replace(/^["']|["']$/g, ""))
     
+    else if m = tokens.SUMRESOP.bexec(this)
+      result.push make("SUMRESOP", getTok())
+      
+    else if m = tokens.MULTDIV.bexec(this)
+      result.push make("MULTDIV", getTok())
+    
     # comparison operator
     else if m = tokens.COMPARISONOPERATOR.bexec(this)
       result.push make("COMPARISON", getTok())
+      
     # single-character operator
     else if m = tokens.ONECHAROPERATORS.bexec(this)
       result.push make(m[0], getTok())
@@ -182,36 +191,24 @@ parse = (input) ->
 
   expression = ->
     result = term()
-    while lookahead and lookahead.type is "+"
-      match "+"
+    while lookahead and lookahead.type is "SUMRESOP"
+      type = lookahead.value
+      match "SUMRESOP"
       right = term()
       result =
-        type: "+"
-        left: result
-        right: right
-    while lookahead and lookahead.type is "-"
-      match "-"
-      right = term()
-      result =
-        type: "-"
+        type: type
         left: result
         right: right
     result
 
   term = ->
     result = factor()
-    while lookahead and lookahead.type is "*"
-      match "*"
+    while lookahead and lookahead.type is "MULTDIV"
+      type = lookahead.value
+      match "MULTDIV"
       right = factor()
       result =
-        type: "*"
-        left: result
-        right: right
-    while lookahead and lookahead.type is "/"
-      match "/"
-      right = factor()
-      result =
-        type: "/"
+        type: type
         left: result
         right: right
     result
