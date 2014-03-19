@@ -182,11 +182,18 @@ parse = (input) ->
 
   expression = ->
     result = term()
-    if lookahead and lookahead.type is "+"
+    while lookahead and lookahead.type is "+"
       match "+"
-      right = expression()
+      right = term()
       result =
         type: "+"
+        left: result
+        right: right
+    while lookahead and lookahead.type is "-"
+      match "-"
+      right = term()
+      result =
+        type: "-"
         left: result
         right: right
     result
@@ -198,6 +205,13 @@ parse = (input) ->
       right = factor()
       result =
         type: "*"
+        left: result
+        right: right
+    while lookahead and lookahead.type is "/"
+      match "/"
+      right = factor()
+      result =
+        type: "/"
         left: result
         right: right
     result
