@@ -197,7 +197,7 @@ parse = (input) ->
 
   term = ->
     result = factor()
-    while lookahead is lookahead.type "MULDIVOP"
+    while lookahead and lookahead.type is "MULDIVOP"
       type = lookahead.value
       match "MULDIVOP"
       right = factor()
