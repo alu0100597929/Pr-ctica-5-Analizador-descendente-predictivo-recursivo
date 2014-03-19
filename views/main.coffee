@@ -176,19 +176,18 @@ parse = (input) ->
       match "WHILE"
       left = condition()
       match "DO"
-      if lookahead and lookahead.type is "{"
-	while lookahead and lookahead.type is not "}"
-	  right = statement()
-	  result =
-	    type: "WHILE"
-	    left: left
-	    right: right
-    else if lookahead and lookahead.type is "BEGIN"
-      match "BEGIN"
       right = statement()
       result =
-        type: "BEGIN"
+        type: "WHILE"
+        left: left
         right: right
+    else if lookahead and lookahead.type is "BEGIN"
+      match "BEGIN"
+      while lookahead and lookahead.type != "END"
+	right = statement()
+	result =
+	  type: "BEGIN"
+	  right: right
     else # Error!
       throw "Syntax Error. Expected identifier but found " + 
         (if lookahead then lookahead.value else "end of input") + 
