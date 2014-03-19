@@ -7,11 +7,10 @@ center
       | También puede cargar un archivo de ejemplo para ver el resultado.
     div
       textarea#original[autofocus cols="80" rows="5"]
-  
     br
     div
       .loadfile
-        table.tablaIN
+        table.tablaEjemplos
           tr
             td
               button#example1 onclick="dump('/examples/example1.txt');" type="button"  example1
@@ -49,6 +48,6 @@ center
             else { alert("Failed to load file"); }
           }
 
-
+  br
   input#PARSE.mylink[value="parse" type="button"]
   pre#OUTPUT
