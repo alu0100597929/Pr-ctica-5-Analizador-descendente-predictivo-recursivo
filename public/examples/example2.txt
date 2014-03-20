@@ -1,2 +1,8 @@
-a = 4*2;
-if a > 6 then p a
+const x = 0;
+var a, b;
+
+begin
+  if a == 0 then
+   while b >= x do
+    a = a+1
+end.
