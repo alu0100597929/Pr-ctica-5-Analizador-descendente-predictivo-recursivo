@@ -1,7 +1,9 @@
+script src="tests/chai.js" 
+script src="tests/mocha.js" 
+
 #mocha
-    script src="tests/chai.js" 
-    script src="tests/mocha.js" 
     javascript:
-      | mocha.setup('tdd')    %script{:src => "tests/tests.js"}
+      mocha.setup('tdd');
+    script type='text/javascript' src='public/tests/tests.js'
     javascript:
-      | mocha.run();
+      mocha.run();
