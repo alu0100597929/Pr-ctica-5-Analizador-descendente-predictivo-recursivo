@@ -1,9 +1,9 @@
-script type='text/javascript' src='public/scripts/js/chai.js'
-script type='text/javascript' src='public/scripts/js/mocha.js'
-
 #mocha
-  javascript:
-    mocha.setup('tdd');
-  script type='text/javascript' src='public/tests/tests.js'
-  javascript:
-    mocha.run();
+javascript:
+  mocha.run();
+    javascript:
+  function dump(fileName) {
+    $.get(fileName, function (data) {
+      $("#input").val(data);
+    });
+  };
