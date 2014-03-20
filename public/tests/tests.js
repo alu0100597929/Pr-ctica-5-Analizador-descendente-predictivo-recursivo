@@ -25,10 +25,4 @@ var assert = chai.assert;
  			assert.equal(OUTPUT.innerHTML, '[\n  {\n    "type": "WHILE",\n    "left": {\n      "type": "&lt;",\n      "left": {\n        "type": "ID",\n        "value": "a"\n      },\n      "right": {\n        "type": "NUM",\n        "value": 3\n      }\n    },\n    "right": {\n      "type": "=",\n      "left": {\n        "type": "ID",\n        "value": "b"\n      },\n      "right": {\n        "type": "+",\n        "left": {\n          "type": "ID",\n          "value": "b"\n        },\n        "right": {\n          "type": "NUM",\n          "value": 1\n        }\n      }\n    }\n  }\n]');
      });
 
-    test('Prueba 5 - ID', function() {
-         original.value = "a = hola.";
-         main();
- 			assert.equal(OUTPUT.innerHTML, '<div class="error">TypeError: Cannot read property 'type' of null</div>');
-     });
-
  });
