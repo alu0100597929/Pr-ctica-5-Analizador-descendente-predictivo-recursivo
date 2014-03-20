@@ -1,8 +1,10 @@
-#mocha
 script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" type="text/javascript" 
 script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" 
 script src="tests/chai.js" 
-script src="tests/mocha.js" 
+script src="tests/mocha.js"
+script src="main.coffee"
+script src="layout.slim"
+script src="home.slim"
 
 javascript:
   | mocha.setup('tdd')%script{:src => "tests/tests.js"}
