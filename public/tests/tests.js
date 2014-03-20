@@ -3,8 +3,11 @@ var assert = chai.assert;
  suite('Pruebas: ', function() {
     test('Prueba 1', function() {
          var original = "a = 2.";
- 		assert.equal('[\n  {\n    "type": "=",\n    "left": {\n      "type": "ID",\n      "value": "a"\n    },\n    "right": {\n      "type": "NUM",\n      "value": 2\n    }\n  }\n]', parse(original));
-     });
+ 		assert.equal('[\n{\n"type": "=",\n"left": {\n"type": "ID",\n"value": "a"\n},\n"right": {\n"type": "NUM",\n"value": 2\n}\n}\n]', parse(original));
+     
+    
+		
+    });
 
     test('Prueba 2 - operacion', function() {
          var original = "a = 2+3-4*5/7.";
