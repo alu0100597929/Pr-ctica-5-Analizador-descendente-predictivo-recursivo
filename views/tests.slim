@@ -1,8 +1,8 @@
-script src="./tests/chai.js" 
-script src="./tests/mocha.js" 
-script src="./main.coffee" 
+script src="tests/chai.js" 
+script src="tests/mocha.js" 
+script src="main.coffee" 
 
 javascript:
-  | mocha.setup('tdd')%script{:src => "./tests/tests.js"}
+  | mocha.setup('tdd')%script{:src => "tests/tests.js"}
 javascript:
   | mocha.run();
