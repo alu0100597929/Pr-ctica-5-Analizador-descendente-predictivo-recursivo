@@ -1,8 +1,9 @@
-script src="tests/chai.js" 
-script src="tests/mocha.js" 
-script src="main.js" 
-
+#mocha
 javascript:
-  | mocha.setup('tdd')%script{:src => "tests/tests.js"}
-javascript:
-  | mocha.run();
+  mocha.run();
+    javascript:
+  function dump(fileName) {
+    $.get(fileName, function (data) {
+      $("#input").val(data);
+    });
+  };
