@@ -5,6 +5,7 @@ Implementación de analizador léxico descendente predictivo y recursivo utiliza
 
 
 TAREAS
+---------
 
 - Extienda y modifique el analizador para que acepte el lenguaje descrito por la gramática EBNF del lenguaje PL/0. 
 - Procure que el arbol generado refleje la asociatividad correcta para las diferencias y las divisiones. 
