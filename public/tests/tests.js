@@ -3,7 +3,7 @@ var assert = chai.assert;
  suite('Pruebas: ', function() {
     test('Prueba 1', function() {
          var original = "a = 2.";
- 		assert.equal('[\n{\n"type": "=",\n"left": {\n"type": "ID",\n"value": "a"\n},\n"right": {\n"type": "NUM",\n"value": 2\n}\n}\n]', JSON.stringify(parse(original)));
+ 		assert.equal('[{"type":"=","left":{"type":"ID","value":"a"},"right":{"type":"NUM","value":2}}]', JSON.stringify(parse(original)));
      
     
 		
