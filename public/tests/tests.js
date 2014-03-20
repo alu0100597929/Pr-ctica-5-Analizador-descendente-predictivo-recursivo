@@ -3,8 +3,7 @@ var assert = chai.assert;
  suite('Pruebas: ', function() {
     test('Prueba 1', function() {
          var original = "a = 2.";
-         window.main();
- 			assert.equal(OUTPUT.innerHTML, '[\n  {\n    "type": "=",\n    "left": {\n      "type": "ID",\n      "value": "a"\n    },\n    "right": {\n      "type": "NUM",\n      "value": 2\n    }\n  }\n]');
+ 		assert.equal('[\n  {\n    "type": "=",\n    "left": {\n      "type": "ID",\n      "value": "a"\n    },\n    "right": {\n      "type": "NUM",\n      "value": 2\n    }\n  }\n]', parse(original));
      });
 
     test('Prueba 2 - operacion', function() {
