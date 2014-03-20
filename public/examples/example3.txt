@@ -1,0 +1,6 @@
+procedure a;
+call a;
+
+begin
+  while a == b do next = next+1*3-7/2-4-6
+end.

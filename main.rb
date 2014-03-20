@@ -31,7 +31,7 @@ helpers do
   end
   
   def set_title
-    @title ||= "Predictive Recursive Descent Parser"
+    @title ||= "Parseador Descendente Predictivo Recursivo"
   end
 end
 
@@ -44,6 +44,10 @@ end
 
 get '/grammar' do
   slim :grammar
+end
+
+get '/tests' do
+  slim :tests
 end
 
 not_found do
