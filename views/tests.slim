@@ -1,21 +1,9 @@
-html
-  head
-    title Mocha
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" 
-      meta content="width=device-width, initial-scale=1.0" name="viewport" 
-        link href="/tests/mocha.css" rel="stylesheet" /
-        link href="/tests/tests.css" rel="stylesheet" type="text/css" 
-          link href="/images/favicon.ico" rel=("shortcut icon") type="image/x-icon" 
-  body
-    #mocha
-    script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" type="text/javascript" 
-    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" 
-    script src="/javascripts/main.js"
-    script src="/tests/chai.js" 
-    script src="/tests/mocha.js" 
+#mocha
+javascript:
+  mocha.run();
     javascript:
-      | mocha.setup('tdd')    %script{:src => "/tests/tests.js"}
-    javascript:
-      | mocha.run();
-        a#Atras href="index.erb" 
-      font color="white"  Atrás
+  function dump(fileName) {
+    $.get(fileName, function (data) {
+      $("#input").val(data);
+    });
+  };
